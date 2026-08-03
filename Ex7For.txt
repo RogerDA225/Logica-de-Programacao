@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int numero, contador = 1, contadorf = 1, fatorial = 1;
+        double E = 1;
+        System.out.println("Digite o numero para a soma parar: ");
+        numero = teclado.nextInt();
+        for (contador = 1; contador <= numero; contador++) {
+            for (contadorf = 1; contadorf <= contador; contadorf++) {
+                fatorial *= contadorf;
+            }
+            E += (contador * 10.0) / fatorial;
+            fatorial = 1;
+            contadorf = 1;
+        }
+        System.out.println("E = " + E);
+    }
+}

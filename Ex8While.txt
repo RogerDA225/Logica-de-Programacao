@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int quantidade_jogadores, idade, contador_jogadores = 1, menores_idade = 0, soma_maiores_idade = 0, maiores_idade = 0, maior_80kg = 0;
+        double peso, altura, soma_alturas = 0, media_alturas, maior_altura1 = 0, maior_altura2 = 0, maior_altura3 = 0, media_maiores_idade = 0, porcentagem_maior80kg;
+        String nome, nome_maior1 = "a", nome_maior2 = "b", nome_maior3 = "c";
+        System.out.println("Digite a quantidade de jogadores: ");
+        quantidade_jogadores = teclado.nextInt();
+        while (contador_jogadores <= quantidade_jogadores) {
+            System.out.println("Nome: ");
+            nome = teclado.next();
+            System.out.println("Idade: ");
+            idade = teclado.nextInt();
+            if (idade < 18) {
+                menores_idade++;
+            } else {
+                soma_maiores_idade += idade;
+                maiores_idade++;
+            }
+            System.out.println("Peso: ");
+            peso = teclado.nextDouble();
+            if (peso > 80.0) {
+                maior_80kg++;
+            }
+            System.out.println("Altura: ");
+            altura = teclado.nextDouble();
+            soma_alturas += altura;
+            if (altura > maior_altura1) {
+                maior_altura3 = maior_altura2;
+                maior_altura2 = maior_altura1;
+                maior_altura1 = altura;
+                nome_maior3 = nome_maior2;
+                nome_maior2 = nome_maior1;
+                nome_maior1 = nome;
+            } else if (altura > maior_altura2) {
+                maior_altura3 = maior_altura2;
+                maior_altura2 = altura;
+                nome_maior3 = nome_maior2;
+                nome_maior2 = nome;
+            } else if (altura > maior_altura3) {
+                maior_altura3 = altura;
+                nome_maior3 = nome;
+            }
+            contador_jogadores++;
+        }
+        media_maiores_idade = soma_maiores_idade * 1.0 / maiores_idade;
+        porcentagem_maior80kg = maior_80kg * 100.0 / quantidade_jogadores;
+        media_alturas = soma_alturas * 1.0 / quantidade_jogadores; 
+        System.out.println("Quantidade de jogadores menores de idade: " + menores_idade);
+        System.out.println("A média de idade dos jogadores maiores de idade: " + media_maiores_idade);
+        System.out.println("A porcentagem de jogadores com mais de 80kg: " +  porcentagem_maior80kg + "%");
+        System.out.println("A altura média do time: " +  media_alturas);
+        System.out.println("Os 3 jogadores mais altos: " + nome_maior1 + ", " + nome_maior2 + " e " + nome_maior3);
+    }
+}
