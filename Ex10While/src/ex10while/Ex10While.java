@@ -1,0 +1,37 @@
+
+package ex10while;
+
+import java.util.Scanner;
+
+public class Ex10While {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        String cor;
+        int cont = 1, cont_azul = 0, cont_verde = 0, cont_vermelho = 0, cont_outras = 0, quantidade;
+        System.out.println("Digite a quantidade de cores a ser digitada: ");
+        quantidade = teclado.nextInt();
+        teclado.nextLine();
+        while (cont < quantidade) {
+            System.out.println("Digite a cor: ");
+            cor = teclado.nextLine();
+            if ("azul".equals(cor)) {
+                cont_azul++;
+            } else if ("verde".equals(cor)) {
+                cont_verde++;
+            } else if ("vermelho".equals(cor)) {
+                cont_vermelho++;
+            } else {
+                cont_outras++;
+            }
+            cont++;
+        }
+        System.out.println("O azul foi digitado " + cont_azul + " vezes");
+        if (cont_verde > cont_azul && cont_verde > cont_vermelho && cont_verde > cont_outras) {
+            System.out.println("O verde foi digitado mais vezes");
+        } else if (cont_vermelho > cont_verde && cont_vermelho > cont_azul && cont_vermelho > cont_outras) {
+            System.out.println("O vermelho foi digitado mais vezes");
+        }
+    }
+    
+}
