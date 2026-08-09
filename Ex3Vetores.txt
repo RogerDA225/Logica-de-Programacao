@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class ex3vetores {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int tamanho = 9, cont = 0, resto = 1;
+        int vet_numeros[] = new int [tamanho];
+        int vet_primos[] = new int [tamanho];
+        for (int i = 0; i < tamanho; i++) {
+            System.out.println("Digite o " + (i+1) + "o numero: ");
+            vet_numeros[i] = teclado.nextInt();
+        }
+        for (int i = 0; i < tamanho; i++) {
+            for (int divisor = 2; divisor < vet_numeros[i]; divisor++) {
+                   resto *= vet_numeros[i] % divisor;
+            }
+            if (resto != 0 && vet_numeros[i] != 1) {
+                vet_primos[cont] = vet_numeros[i];
+                cont++;
+            } 
+            resto = 1;
+        }
+        System.out.println("Os primos são: ");
+        for (int i = 0; i < cont; i++) {
+            System.out.println(vet_primos[i]);
+        }
+
+
+    }
+}
